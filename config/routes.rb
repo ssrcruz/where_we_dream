@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'schools#index'
+  root 'searches#index'
 
   resources :searches
   resources :schools
