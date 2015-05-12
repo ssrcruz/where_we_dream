@@ -11,14 +11,6 @@
       </ul>
     </nav>
     <div class="navigation-tools">
-      <div class="search-bar">
-        <form role="search">
-          <input type="search" placeholder="Enter Search" />
-          <button type="submit">
-            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png" alt="Search Icon">
-          </button>
-        </form>
-      </div>
       <a href="javascript:void(0)" class="login">Login</a>
     </div>
   </div>
@@ -29,27 +21,16 @@
     <a href="" class="hero-logo"><img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png
       " alt="Logo Image"></a>
       <div class="hero-copy">
-        <h2>Choose a School</h2>
-        <center>
-        <form class="search-bar" role="search">
-          <!-- <%= form_tag schools_path, :method => 'get' do %> -->
-            <!-- <%= text_field_tag :search, params[:search], :type => "search", :placeholder => "Enter School"%> -->
-            <!-- <%= submit_tag "GO"%> -->
-            <!-- <button type="submit"> -->
-              <!-- <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png" alt="Search Icon"> -->
-            <!-- </button> -->
-          <!-- <% end %> -->
-
-
-
-        </form>
-      </center>
-      <%= form_tag schools_path, :method => 'get' do %>
-      <%= text_field_tag :search, params[:search], :type => "search", :placeholder => "Enter School"%>
-      <%= submit_tag "GO"%>
-      <% end %>
-
-        <%= link_to 'Advanced Search', new_search_path %>
+            <center>
+              <h2>Choose a School</h2>
+              <%= form_tag schools_path, :class => "search-bar", :method => 'get' do %>
+                <%= text_field_tag :search, params[:search], :type => "search", :placeholder => "Enter School" %>
+                <button type="submit">
+                  <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png" alt="Search Icon">
+                </button>
+              <% end %>
+            </center>
+            <%= link_to 'Advanced Search', new_search_path %>
       </div>
   </div>
 </div
