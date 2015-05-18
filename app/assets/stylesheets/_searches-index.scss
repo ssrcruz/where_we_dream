@@ -285,67 +285,6 @@ header.navigation {
     padding: 0.75em 1em;
     text-transform: uppercase;
   }
-
-  // Search bar
-
-  .search-bar {
-    $search-bar-border-color: $base-border-color;
-    $search-bar-border: 1px solid $search-bar-border-color;
-    $search-bar-background: lighten($search-bar-border-color, 10%);
-
-    float: left;
-    padding: 0.85em 0.6em 0.7em 0.6em;
-    width: 60%;
-
-    form {
-      position: relative;
-
-      input[type=search] {
-        @include box-sizing(border-box);
-        background: $navigation-search-background;
-        border-radius: $base-border-radius * 2;
-        border: $navigation-search-border;
-        color: $navigation-color;
-        font-size: 0.9em;
-        font-style: italic;
-        margin: 0;
-        padding: 0.5em 0.8em;
-        width: 100%;
-
-        @include media($horizontal-bar-mode) {
-          width: 100%;
-        }
-      }
-
-      button[type=submit] {
-        @include button(flat, $navigation-search-background);
-        bottom: 0.3em;
-        left: auto;
-        outline: none;
-        padding: 0 9px;
-        position: absolute;
-        right: 0.3em;
-        top: 0.3em;
-
-        img {
-          height: 12px;
-          opacity: 0.7;
-          padding: 1px;
-        }
-      }
-    }
-
-    @include media($horizontal-bar-mode) {
-      display: inline-block;
-      position: relative;
-      width: 16em;
-
-      input {
-        @include box-sizing(border-box);
-        display: block;
-      }
-    }
-  }
 }
 
 
@@ -438,7 +377,7 @@ form.search-bar {
     font-size: 1em;
     font-style: italic;
     margin: 0;
-    padding: 3px 5px;
+    padding: 2px 10px;
     // position: relative;
     // width: 100%;
     // float: left;
@@ -447,7 +386,7 @@ form.search-bar {
 
   button[type=submit] {
     @include button(flat, $action-color);
-    @include position(absolute, 0em 21em 0em null);
+    @include position(absolute, 0em 19em 0em null);
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
     outline: none;
