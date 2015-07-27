@@ -299,12 +299,10 @@ header.navigation {
   $gradient-angle: 10deg;
   $hero-image: 'https://raw.githubusercontent.com/ssrcruz/swb/master/app/assets/images/background.jpg';
 
-  @include background(url($hero-image), linear-gradient($gradient-angle, $hero-background-bottom, $hero-background-top), no-repeat $hero-background-top scroll);
+  background: url($hero-image) no-repeat center center fixed;
   background-color: #324766;
-  background-position: top;
-  background-repeat: no-repeat;
   background-size: cover;
-  padding-bottom: 12em;
+  padding-bottom: 0em;
 
   .hero-logo img {
     height: 4em;

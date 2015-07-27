@@ -16,3 +16,11 @@
  @import "bourbon";
  @import "neat";
  @import "searches-index";
+ @import url(http://fonts.googleapis.com/css?family=Monda:400,700);
+
+body {
+  margin: 0px;
+  height: 100%;
+  width: 100%;
+  font-family: 'Monda', sans-serif;
+}
