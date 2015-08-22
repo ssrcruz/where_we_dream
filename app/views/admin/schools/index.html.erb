@@ -16,9 +16,9 @@
       <tr>
         <td><%= school.name %></td>
         <td><%= school.rating %></td>
-        <td><%= link_to 'Show', school %></td>
-        <td><%= link_to 'Edit', edit_school_path(school) %></td>
-        <td><%= link_to 'Destroy', school, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', admin_school_path(school) %></td>
+        <td><%= link_to 'Edit', edit_admin_school_path(school) %></td>
+        <td><%= link_to 'Destroy', admin_school_path(school), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
