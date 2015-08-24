@@ -49,6 +49,15 @@
     <%= f.label :public %><br>
     <%= f.check_box :public %>
   </div>
+
+  <%= f.fields_for :rules do |ff| %>
+    <div class="field">
+      <%= ff.object.question! %><br>
+      <%= ff.radio_button :answer, true %> yes
+      <%= ff.radio_button :answer, false %> no
+      <%= ff.radio_button :answer, '' %> idk
+    </div>
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>

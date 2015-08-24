@@ -1,8 +1,12 @@
 class School < ActiveRecord::Base
-  validates :name, presence: true
+  validates :name, presence: true, allow_blank: true
   validates :students, numericality: true, allow_blank: true
   validates :undocumented_students, numericality: true, allow_blank: true
   validates :zip, length: {is: 5}, allow_blank: true
+
+  has_many :rules, dependent: :destroy
+
+  accepts_nested_attributes_for :rules
 
   # def initialize(*strings)
   #   p strings
@@ -19,10 +23,10 @@ class School < ActiveRecord::Base
   end
 
   def address
-    if street && city && state && zip
-      "#{street}, #{city}, #{state} #{zip}"
-    else
+    if (street.blank? || city.blank?) || (state.blank? || zip.blank?)
       nil
+    else
+      "#{street}, #{city}, #{state} #{zip}"
     end
   end
 

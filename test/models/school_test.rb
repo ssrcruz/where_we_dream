@@ -58,7 +58,64 @@ class SchoolTest < ActiveSupport::TestCase
   test "address" do
     school1 = School.create(name: 'name', street: "one", city: "two", state: "three", zip: "39902")
     school2 = School.create(name: 'name', street: "one", city: "two", state: "three")
+    assert school2.zip.blank?
     assert_equal 'one, two, three 39902', school1.address
     assert_equal nil, school2.address
+  end
+
+  test "rules" do
+    school = School.create(name: 'school')
+    question = Question.create(value: 'sup?')
+
+    assert_equal 0, school.rules.count
+
+    rule1 = Rule.create(school: school, question: question, answer: true)
+    rule2 = Rule.create(school: school, question: question, answer: false)
+    rule3 = Rule.create(school: school, question: question, answer: false)
+
+    assert_equal 3, school.rules.count
+  end
+
+  test "nested rules" do
+    school = School.create(name: 'school')
+    question = Question.create(value: 'sup?')
+
+    assert_equal 0, school.rules.count
+
+    school.rules.new(school: school, question: question, answer: true)
+
+    assert_difference 'school.rules.count' do
+      school.save
+    end
+  end
+
+  test "nested rules 2" do
+    school = School.create(name: 'school')
+
+    assert_equal 0, school.rules.count
+
+    Question.all.each do |question|
+      school.rules.new(question: question)
+    end
+
+    assert_difference 'school.rules.count', 3 do # the '3' come from the fixtures
+      school.save
+    end
+  end
+
+  test "delete" do
+    school = School.create(name: 'school')
+
+    Question.all.each do |question| # Already 2 rules from fixtures but makes three more rules
+      school.rules.new(question: question)
+    end
+
+    school.save
+
+    assert_equal 5, Rule.count
+
+    School.destroy(school.id) # only 3 rules were associated with this school so 5 - 3 = 2
+
+    assert_equal 2, Rule.count
   end
 end
