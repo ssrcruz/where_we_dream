@@ -1,4 +1,6 @@
-<%= form_for(@school, url: '/admin/schools') do |f| %>
+<% @school.id ? correct_path = admin_school_path(@school) : correct_path = admin_schools_path %>
+
+<%= form_for(@school, url: correct_path) do |f| %>
   <% if @school.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@school.errors.count, "error") %> prohibited this school from being saved:</h2>
@@ -16,8 +18,36 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :rating %><br>
-    <%= f.number_field :rating %>
+    <%= f.label :link %><br>
+    <%= f.text_field :link %>
+  </div>
+  <div class="field">
+    <%= f.label :students %><br>
+    <%= f.number_field :students %>
+  </div>
+  <div class="field">
+    <%= f.label :undocumented_students %><br>
+    <%= f.number_field :undocumented_students %>
+  </div>
+  <div class="field">
+    <%= f.label :street %><br>
+    <%= f.text_field :street %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.number_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br>
+    <%= f.text_field :state %>
+  </div>
+  <div class="field">
+    <%= f.label :zip %><br>
+    <%= f.text_field :zip %>
+  </div>
+  <div class="field">
+    <%= f.label :public %><br>
+    <%= f.check_box :public %>
   </div>
   <div class="actions">
     <%= f.submit %>

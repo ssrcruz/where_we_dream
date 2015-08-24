@@ -5,7 +5,7 @@ class CreateSchools < ActiveRecord::Migration
       t.decimal :rating
       t.string :link
       t.integer :students
-      t.integer :immigrant_students
+      t.integer :undocumented_students
       t.string :street
       t.string :city
       t.string :state

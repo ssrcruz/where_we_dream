@@ -11,21 +11,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150510171516) do
+ActiveRecord::Schema.define(version: 20150824005209) do
+
+  create_table "questions", force: :cascade do |t|
+    t.string   "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rules", force: :cascade do |t|
+    t.integer  "school_id"
+    t.integer  "question_id"
+    t.boolean  "answer"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "rules", ["question_id"], name: "index_rules_on_question_id"
+  add_index "rules", ["school_id"], name: "index_rules_on_school_id"
 
   create_table "schools", force: :cascade do |t|
     t.string   "name"
     t.decimal  "rating"
     t.string   "link"
     t.integer  "students"
-    t.integer  "immigrant_students"
+    t.integer  "undocumented_students"
     t.string   "street"
     t.string   "city"
     t.string   "state"
     t.string   "zip"
     t.boolean  "public"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
 end

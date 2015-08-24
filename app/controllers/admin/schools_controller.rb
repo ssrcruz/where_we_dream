@@ -26,12 +26,10 @@ class Admin::SchoolsController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @school.update(school_params)
-        redirect_to @school, notice: 'School was successfully updated.'
-      else
-        render :edit
-      end
+    if @school.update(school_params)
+      redirect_to admin_schools_path, notice: 'School was successfully updated.'
+    else
+      render :edit
     end
   end
 

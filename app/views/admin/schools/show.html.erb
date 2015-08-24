@@ -6,14 +6,9 @@
 </p>
 
 <p>
-  <strong>Scholarship:</strong>
-  <%= @school.scholarship %>
-</p>
-
-<p>
   <strong>Rating:</strong>
   <%= @school.rating %>
 </p>
 
-<%= link_to 'Edit', edit_school_path(@school) %> |
-<%= link_to 'Back', schools_path %>
+<%= link_to 'Edit', edit_admin_school_path(@school) %> |
+<%= link_to 'Back', admin_schools_path %>
