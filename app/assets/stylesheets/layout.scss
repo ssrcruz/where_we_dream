@@ -1,13 +1,16 @@
 #content {
-  width: 80%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 100%;
 
-  @include tablet {
-    width: 90%
-  }
-
-  @include mobile {
-    width: 100%
-  }
+  // @include tablet {
+  //   width: 90%
+  // }
+  //
+  // @include mobile {
+  //   width: 100%
+  // }
 
 }
 
@@ -19,7 +22,7 @@ header.navigation {
   $navigation-padding: 1em;
   $navigation-background: #FFB100 !default;
   $navigation-color: transparentize(white, 0.3);
-  $navigation-color-hover: white;
+  $navigation-color-hover: #F8FE00;
   $navigation-height: 60px;
   $navigation-nav-button-background: $action-color;
   $navigation-nav-button-background-hover: lighten($navigation-background, 10%);
@@ -31,11 +34,13 @@ header.navigation {
   $navigation-submenu-width: 12em;
   $horizontal-bar-mode: $large-screen;
 
-  background-color: $navigation-background;
-  border-bottom: 1px solid darken($navigation-background, 10);
+  // background-color: $navigation-background;
+  background-color: white;
+  // border-bottom: 1px solid darken($navigation-background, 10);
   min-height: $navigation-height;
   width: 100%;
   z-index: 999;
+  position: absolute;
 
   .navigation-wrapper {
     @include clearfix;
@@ -43,7 +48,7 @@ header.navigation {
     left: 0;
     right: 0;
     margin: 0 auto;
-    position: absolute;
+    // position: absolute;
     z-index: 9999;
     font-size: 24px;
     width: 80%;
@@ -65,7 +70,8 @@ header.navigation {
   // Mobile view
 
   .navigation-menu-button {
-    color: $navigation-color;
+    // color: $navigation-color;
+    color: white;
     display: block;
     float: right;
     line-height: $navigation-height;
@@ -138,9 +144,11 @@ header.navigation {
     }
 
     a {
-      color: $navigation-color;
+      // color: $navigation-color;
+      color: black;
       display: inline-block;
       text-decoration: none;
+      transition: color .2s;
 
       @include media ($horizontal-bar-mode) {
         padding-right: 1em;
@@ -232,30 +240,30 @@ header.navigation {
     }
 
     .submenu {
-      @include media($horizontal-bar-mode) {
-        left: $navigation-submenu-width - 0.2em;
-        top: 0;
-      }
+      // @include media($horizontal-bar-mode) {
+      //   left: $navigation-submenu-width - 0.2em;
+      //   top: 0;
+      // }
     }
 
     li {
       display: block;
       padding-right: 0;
 
-      @include media($horizontal-bar-mode) {
-        line-height: $navigation-height / 1.3;
-
-        &:first-child > a {
-          border-top-left-radius: $base-border-radius;
-          border-top-right-radius: $base-border-radius;
-        }
-
-        &:last-child > a {
-          border-bottom-left-radius: $base-border-radius;
-          border-bottom-right-radius: $base-border-radius;
-          padding-bottom: 0.7em;
-        }
-      }
+      // @include media($horizontal-bar-mode) {
+      //   line-height: $navigation-height / 1.3;
+      //
+      //   &:first-child > a {
+      //     border-top-left-radius: $base-border-radius;
+      //     border-top-right-radius: $base-border-radius;
+      //   }
+      //
+      //   &:last-child > a {
+      //     border-bottom-left-radius: $base-border-radius;
+      //     border-bottom-right-radius: $base-border-radius;
+      //     padding-bottom: 0.7em;
+      //   }
+      // }
 
       a {
         background-color: darken($navigation-background, 3%);
@@ -263,12 +271,12 @@ header.navigation {
         text-align: right;
         width: 100%;
 
-        @include media($horizontal-bar-mode) {
-          background-color: $navigation-background;
-          padding-left: $navigation-submenu-padding;
-          text-align: left;
-          width: $navigation-submenu-width;
-        }
+        // @include media($horizontal-bar-mode) {
+        //   background-color: $navigation-background;
+        //   padding-left: $navigation-submenu-padding;
+        //   text-align: left;
+        //   width: $navigation-submenu-width;
+        // }
       }
     }
   }
@@ -281,6 +289,9 @@ header.navigation {
     display: block;
     height: $navigation-height;
     float: right;
+    a {
+      color: black;
+    }
 
     @include media($horizontal-bar-mode) {
       background: transparent;
@@ -350,8 +361,4 @@ header.navigation {
       }
     }
   }
-}
-
-.login {
-  color:white;
 }

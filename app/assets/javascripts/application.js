@@ -13,3 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+function setCoverHeight() {
+  $('.cover').height( $(window).height() );
+};
+
+function responsiveCoverHeight() {
+  $( window ).resize( setCoverHeight );
+};
+
+$(setCoverHeight);
+$(responsiveCoverHeight);
