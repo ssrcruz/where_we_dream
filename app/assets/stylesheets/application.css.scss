@@ -16,13 +16,18 @@
 @import 'bourbon';
 @import 'neat';
 @import 'sass';
+@import 'layout';
 @import 'home';
-
-@import url(http://fonts.googleapis.com/css?family=Monda:400,700);
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,600,200');
+// @import url(http://fonts.googleapis.com/css?family=Monda:400,700);
 
 body {
   margin: 0px;
   height: 100%;
   width: 100%;
-  font-family: 'Monda', sans-serif;
+  font-family: 'Raleway', sans-serif;
+}
+
+p {
+  font-size: 16px;
 }
