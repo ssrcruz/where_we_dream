@@ -3,6 +3,7 @@
   right: 0;
   margin: auto;
   width: 100%;
+  font-family: 'Raleway', sans-serif;
 
   // @include tablet {
   //   width: 90%
@@ -41,6 +42,7 @@ header.navigation {
   width: 100%;
   z-index: 999;
   position: absolute;
+  font-family: 'Exo', sans-serif;
 
   .navigation-wrapper {
     @include clearfix;
@@ -240,10 +242,10 @@ header.navigation {
     }
 
     .submenu {
-      // @include media($horizontal-bar-mode) {
-      //   left: $navigation-submenu-width - 0.2em;
-      //   top: 0;
-      // }
+      @include media($horizontal-bar-mode) {
+        left: $navigation-submenu-width - 0.2em;
+        top: 0;
+      }
     }
 
     li {
